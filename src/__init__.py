@@ -4,8 +4,7 @@ from flask import Flask, config, redirect
 import os
 from src.API.auth.auth import auth
 from src.API.common.common import common
-from src.API.bookmarks.bookmarks import bookmarks
-from src.API.database import db, Bookmark
+from src.API.data.data import data
 from flask_jwt_extended import JWTManager
 from flasgger import Swagger, swag_from
 from src.config.swagger import template, swagger_config
@@ -34,13 +33,11 @@ def create_app(test_config=None):
     else:
         app.config.from_mapping(test_config)
 
-    db.app = app
-    db.init_app(app)
-
+    CORS(app)
     JWTManager(app)
     app.register_blueprint(auth)
     app.register_blueprint(common)
-    app.register_blueprint(bookmarks)
+    app.register_blueprint(data)
 
     Swagger(app, config=swagger_config, template=template)
 
