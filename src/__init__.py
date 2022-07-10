@@ -50,6 +50,7 @@ def create_app(test_config=None):
         return jsonify({'error': 'Something went wrong, we are working on it'}), HTTP_500_INTERNAL_SERVER_ERROR
 
     if __name__ == "__main__":
-        app.run('5.249.146.83', 5000, ssl_context=('cert.pem', 'key.pem'))
+        app.run('5.249.146.83', 5000, debug=True, ssl_context=('cert/cert.pem', 'cert/privkey.pem'))
+
 
     return app

@@ -18,11 +18,11 @@ common = Blueprint("commons", __name__, url_prefix="/api/v1/common")
 def getTokenPB():
     url = 'https://login.microsoftonline.com/common/oauth2/token'
 
-    data = """ grant_type=password
+    data = """grant_type=password
                 &username=RiccardoZanini@riccardozanini14.onmicrosoft.com
                 &password=RicSte2022!
                 &client_id=59b925ce-fdb2-4367-8c6f-10f34b9d5f20
-                &client_secret=Pe28Q~qboRqJgygb8CrL6t6G3iO6SOC0S8Jtcdkd
+                &client_secret=FvN8Q~1_.Ql5CBHYsguvnaTc82xYWmsjRfXrtaCW
                 &resource=https://analysis.windows.net/powerbi/api"""
 
     r = requests.post(url, data=data, verify=False)
